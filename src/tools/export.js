@@ -1,11 +1,12 @@
 'use strict';
 
 var fs = require( 'fs' );
+var path = require( 'path' );
 var async = require( 'async' );
 var spawn = require( 'child_process' ).spawn;
 
 var buildParameters = function( options ) {
-  var params = [ '-jar', './src/jpexs/ffdec.jar' ];
+  var params = [ '-jar', path.resolve( __dirname, '../jpexs/ffdec.jar') ];
 
   if ( options.formats && options.formats.length ) {
     params.push( '-format' );
