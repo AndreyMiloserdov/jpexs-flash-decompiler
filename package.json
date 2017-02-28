@@ -1,0 +1,29 @@
+{
+  "name": "jpex-flash-decompiler",
+  "version": "0.0.1",
+  "description": "Extract resources from SWF using open source jpexs jar library",
+  "main": "src/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyMiloserdov/jpexs-flash-decompiler.git"
+  },
+  "keywords": [
+    "jpex",
+    "flash",
+    "swf",
+    "decompiler"
+  ],
+  "author": "Andrey Miloserdov <andrey.miloserdov@yahoo.com>",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": "https://github.com/AndreyMiloserdov/jpexs-flash-decompiler/issues"
+  },
+  "homepage": "https://github.com/AndreyMiloserdov/jpexs-flash-decompiler#readme",
+  "engines": {
+    "node": "^6.9.1"
+  },
+  "dependencies": {
+    "async": "^2.1.5"
+  }
+}
