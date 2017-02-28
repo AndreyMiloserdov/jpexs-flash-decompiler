@@ -1,5 +1,5 @@
 {
-  "name": "jpex-flash-decompiler",
+  "name": "jpexs-flash-decompiler",
   "version": "0.0.1",
   "description": "Extract resources from SWF using open source jpexs jar library",
   "main": "src/index.js",
