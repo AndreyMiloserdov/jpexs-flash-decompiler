@@ -24,6 +24,12 @@ var buildParameters = function( options ) {
   return params;
 };
 
+function isJavaOptionsError( err ){
+  const javaOptionsMarker = 'Picked up ';
+
+  return (err.substr(0, javaOptionsMarker.length) == javaOptionsMarker)
+}
+
 module.exports = function( options, done ) {
   async.waterfall( [
     function( done ) {
@@ -67,7 +73,15 @@ module.exports = function( options, done ) {
       } );
 
       extr.stderr.on( 'data', ( data ) => {
-        errMsg += data.toString( 'utf8' );
+        const error = data.toString( 'utf8' );
+
+        //JPEXS writes java option usage messages to stderr, so we should redirect it to output stream
+        if(isJavaOptionsError(error)) {
+          outputMsg += error;
+          return;
+        }
+
+        errMsg += error;
       } );
 
       extr.on( 'close', ( code ) => {
