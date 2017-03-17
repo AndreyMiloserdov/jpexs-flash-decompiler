@@ -24,10 +24,10 @@ var buildParameters = function( options ) {
   return params;
 };
 
-function isJavaOptionsError( err ){
-  const javaOptionsMarker = 'Picked up ';
+function isJavaOptionsError( err ) {
+  var javaOptionsMarker = 'Picked up ';
 
-  return (err.substr(0, javaOptionsMarker.length) == javaOptionsMarker)
+  return ( err.substr( 0, javaOptionsMarker.length ) === javaOptionsMarker );
 }
 
 module.exports = function( options, done ) {
@@ -75,8 +75,8 @@ module.exports = function( options, done ) {
       extr.stderr.on( 'data', ( data ) => {
         const error = data.toString( 'utf8' );
 
-        //JPEXS writes java option usage messages to stderr, so we should redirect it to output stream
-        if(isJavaOptionsError(error)) {
+        // JPEXS writes java option usage messages to stderr, so we should redirect it to output stream
+        if ( isJavaOptionsError( error ) ) {
           outputMsg += error;
           return;
         }
