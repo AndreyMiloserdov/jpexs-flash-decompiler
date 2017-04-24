@@ -27,7 +27,7 @@ jpexs.export( {
   file: 'path/to/swf/file',
   output: 'path/to/output/dir',
   items: [ jpexs.ITEM.FONT, ... ],
-  format: [ jpexs.FORMAT.FONT.WOFF, ... ]
+  formats: [ jpexs.FORMAT.FONT.WOFF, ... ]
 }, function( err ) {
   if ( err ) {
     console.log( 'Error: ', err.message );
