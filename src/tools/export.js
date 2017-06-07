@@ -53,17 +53,6 @@ module.exports = function( options, done ) {
       } );
     },
     function( done ) {
-      fs.exists( options.output, ( exists ) => {
-        if ( exists ) {
-          done();
-        } else {
-          done( {
-            message: 'Folder "' + options.output + '" not found, field "output" has incorrect value'
-          } );
-        }
-      } );
-    },
-    function( done ) {
       var extr = spawn( 'java', buildParameters( options ) );
       var outputMsg = '';
       var errMsg = '';
