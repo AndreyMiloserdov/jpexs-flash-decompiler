@@ -75,10 +75,12 @@ module.exports = function( options, done ) {
 
       extr.on( 'close', ( code ) => {
         if ( errMsg === '' ) {
-          console.log( outputMsg );
+          if ( !options.silence )
+            console.log( outputMsg );
           done();
         } else {
-          console.log( errMsg );
+          if ( !options.silence )
+            console.log( errMsg );
           done( {
             message: errMsg
           } );
@@ -87,7 +89,8 @@ module.exports = function( options, done ) {
     }
   ],
     function( err ) {
-      console.log( err );
+      if ( !options.silence )
+        console.log( err );
       done( err );
     }
   );
